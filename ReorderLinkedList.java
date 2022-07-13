@@ -28,10 +28,6 @@ while(head != null)
 
 
 TC - O(N), SC - O(N)
-
-
-
-
  */
 
 /**
@@ -72,6 +68,7 @@ class ReorderLinkedList {
 
             node = next;
 
+            //break the loop when the node points to last element
             if(node != null && node.next == endElement)
             {
                 node.next = null;
