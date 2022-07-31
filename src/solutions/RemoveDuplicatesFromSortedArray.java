@@ -1,4 +1,4 @@
-/*
+package solutions;/*
 Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once.
 The relative order of the elements should be kept the same.
 
@@ -68,6 +68,25 @@ Input: nums = [0,1,2,3,4,2,2,3,3,4]
 
  */
 
+public class RemoveDuplicatesFromSortedArray {
+    public int removeDuplicates(int[] nums) {
 
+        if(nums == null || nums.length ==0){
+            return 0;
+        }
+
+        int currIndex = 1;
+
+        for(int i = 1 ; i < nums.length; i++ ){
+
+            if( nums[i] != nums[i-1]){
+                nums[currIndex++] = nums[i];
+            }
+        }
+
+        return currIndex;
+
+    }
+}
 
 
