@@ -98,26 +98,59 @@ public class MaximumProductSubarray {
         if(nums.length ==0)
             return 0;
 
-        int minArray = nums[0];
-        int maxArray = nums[0];
+        int minArray = nums[0]; // running product or previous product
+        int maxArray = nums[0]; // current max
         int result = nums[0];
-
+        // 0  1 2  3
         //[-2,3,-4, 2]
-          //       i
+        //       i
 
         for(int i = 1; i < nums.length; i++)
         {
             int curr = nums[i]; //-4
 
-            int temp = maxArray * curr; // 3 * -4 = -12
-            //                   -4,  max( -12, 24)
-            maxArray = Math.max(curr, Math.max(temp, minArray * curr));
+            int temp = maxArray * curr; // -4 * 3 = -12
+            //                   -4,  max( -12, -6)
+            maxArray = Math.max(curr, Math.max(temp, minArray * curr)); //3
             //                  3,    min(-6, -6)
-            //                  -4,   min(24, -12)
-            minArray = Math.min(curr, Math.min(minArray * curr,temp));
+            minArray = Math.min(curr, Math.min(temp, minArray * curr));
             //                  3, -2
             //result = 3
             result = Math.max(maxArray, result);
+        }
+
+        return result;
+    }
+
+
+//Approach 3
+    public int maxProduct2(int[] nums) {
+
+        if(nums.length ==0)
+            return 0;
+
+        int minArray = 1; // running product or previous product
+        int maxArray = 1; // current max
+        int result = 1;
+        // 0  1 2  3
+        //[-2,3,-4, 2]
+        //       i
+
+        for(int i = 0; i < nums.length; i++)
+        {
+            if(nums[i] == 0){
+                minArray = 1;
+                maxArray = 1;
+                continue;
+            }
+
+            int curr = nums[i];
+            int temp = curr * maxArray;
+
+            maxArray = Math.max(curr, Math.max(temp, minArray * curr));
+            minArray = Math.min(curr, Math.min(temp, minArray * curr));
+
+            result = Math.max(minArray, maxArray);
         }
 
         return result;
