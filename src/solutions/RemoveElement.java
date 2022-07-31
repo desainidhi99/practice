@@ -1,4 +1,4 @@
-/*
+package solutions;/*
 Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The relative order of
  the elements may be changed.
 
@@ -47,14 +47,30 @@ It does not matter what you leave beyond the returned k (hence they are undersco
  */
 
 /*
-Approach1
-
+Approach 1
 
  0 1 2 3    val = 3
 [2,2,2,3]
          i
     cI
 
-for(int )
 
  */
+
+public class RemoveElement {
+    public int removeElement(int[] nums, int val) {
+
+        int currIndex = 0;
+
+        if(nums == null || nums.length == 0)
+            return 0;
+
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] != val){
+                nums[currIndex++] = nums[i];
+            }
+        }
+
+        return currIndex;
+    }
+}
