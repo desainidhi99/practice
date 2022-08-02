@@ -58,4 +58,19 @@ return nums[i]
  */
 
 public class SingleNumber {
+
+    public int singleNumber(int[] nums) {
+
+        //System.out.println("Xor result = " + (nums[0]^0));
+
+        int carry = 0;
+
+        for(int i = 0; i < nums.length; i++){
+
+            carry = nums[i]^carry;
+        }
+
+        return carry;
+
+    }
 }
