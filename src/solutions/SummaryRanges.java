@@ -84,8 +84,6 @@ public class SummaryRanges {
                 result.add(String.valueOf(nums[i]));
             }
 
-
-
             if(i == nums.length - 2 && nums[i+1] - nums[i] != 1){
                 result.add(String.valueOf(nums[nums.length-1]));
             }
