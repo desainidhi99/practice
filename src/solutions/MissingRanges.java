@@ -14,15 +14,10 @@ Each range [a,b] in the list should be output as:
 "a" if a == b
 
 nums = [0,1,3,50,75], lower = 0, upper = 99 --- [0,99]
-           i
-
-
-
-
-
-
 
  */
 
 public class MissingRanges {
+
+
 }

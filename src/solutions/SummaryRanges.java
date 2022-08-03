@@ -49,14 +49,48 @@ Explanation: The ranges are:
 
  }
 
-
-
  */
 
 
-
-
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class SummaryRanges {
+
+    public List<String> summaryRanges(int[] nums) {
+
+        List<String> result = new ArrayList<String>();
+
+        if(nums == null || nums.length ==0)
+            return result;
+
+        if(nums.length == 1){
+            result.add(String.valueOf(nums[0]));
+            return result;
+        }
+
+        for(int i = 0; i < nums.length - 1; i++){
+
+            if(nums[i + 1] - nums[i] == 1 ){
+
+                int start = nums[i];
+
+                while(i < nums.length - 1 && nums[i+1] - nums [i] == 1){
+                    i++;
+                }
+                int end = nums[i];
+                result.add(String.valueOf(start) + "->" + String.valueOf(end));
+            }else{
+                result.add(String.valueOf(nums[i]));
+            }
+
+
+
+            if(i == nums.length - 2 && nums[i+1] - nums[i] != 1){
+                result.add(String.valueOf(nums[nums.length-1]));
+            }
+        }
+        return result;
+    }
 }
+
