@@ -1,7 +1,8 @@
 package solutions;
 
 /*
-Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.
+Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array
+such that nums[i] == nums[j] and abs(i - j) <= k.
 
 
 
@@ -32,24 +33,26 @@ Output: false
 
  */
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+
+import java.util.Map;
+
 
 public class ContainsDuplicateSecondPart {
-    public boolean containsDuplicate(int[] nums) {
+    public boolean containsDuplicate(int[] nums, Integer k) {
 
         if(nums == null || nums.length == 0)
             return false;
+        if (k == null)
+            return false;
 
-        Set<Integer> set = new HashSet<Integer>();
-
+        Map<Integer, Integer> map = new HashMap<>();
 
         for(int i = 0; i < nums.length; i++){
-            if (set.contains(nums[i]))
-                return true;
-            set.add(nums[i]);
+            if (map.containsKey(nums[i]) && (Math.abs(i - map.get(nums[i])) <= k))
+                    return true;
+            map.put(nums[i], i);
         }
-
 
         return false;
     }

@@ -1,6 +1,4 @@
-import solutions.MaximumProductSubarray;
-import solutions.SumofTwoIntegers;
-import solutions.TwoSum;
+import solutions.*;
 
 import java.util.Arrays;
 
@@ -39,11 +37,30 @@ public class Execution {
 
          */
 
-
+    /*
         SumofTwoIntegers sumofTwoIntegers = new SumofTwoIntegers();
         int result = sumofTwoIntegers.getSum(2 ,1);
 
         System.out.println("result = " + result);
+*/
+        /*
+        MeetingRooms nm = new MeetingRooms();
+
+        int[][] intervals = new int[][]{{13,15},{1,13}};
+
+        boolean x = nm.meetingRooms(intervals);
+
+        System.out.println("Answer = " + x);
+        /*
+         */
+
+        int[] nums = new int[]{1,2,3,1};
+        int k = 3;
+
+        ContainsDuplicateSecondPart csp = new ContainsDuplicateSecondPart();
+        boolean value = csp.containsDuplicate(nums, k);
+
+        System.out.println("Answer = " + value);
 
     }
 }

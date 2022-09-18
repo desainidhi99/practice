@@ -2,3 +2,10 @@ git add .
 git commit -m 
 git push
 git status  ()
+git remote add origin <HTTPS Url>
+git checkout -b <branchName> // switching another branch or creates one if not present
+git pull origin <branchName>
+git push origin <branchName>
+git reset head // need to still research
+
+
