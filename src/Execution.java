@@ -53,7 +53,7 @@ public class Execution {
         System.out.println("Answer = " + x);
         /*
          */
-
+/*
         int[] nums = new int[]{1,2,3,1};
         int k = 3;
 
@@ -61,6 +61,16 @@ public class Execution {
         boolean value = csp.containsDuplicate(nums, k);
 
         System.out.println("Answer = " + value);
+*
 
+ */
+
+ //       boolean[] b_array = new boolean[5];
+
+    //    System.out.println("Answer = " + Arrays.toString(b_array));
+
+        FindAllNumbersInDisappearedArray fnd = new FindAllNumbersInDisappearedArray();
+        int[] result = fnd.FindAllNumbersInDisappearedArray1(new int[]{1,4,3,3});
+        System.out.println("Answer = " + Arrays.toString(result));
     }
 }
