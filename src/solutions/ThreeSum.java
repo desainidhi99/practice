@@ -49,7 +49,7 @@ Approach 2 -
 Sort the array -
   0 1 2 3  4  5
 [-1,0,1,2,-1,-4]
-[-4,-1,-1,0,1,2]
+[-4,-1,-1,0,1,2] -- (O n logn)
         i
           j
             k
@@ -58,6 +58,7 @@ low = 0
 high = nums.length
 [-4,-1,-1,0,1,2]
  first
+ diff = target - i = 0 - (-4) = 4
         low
                high
 while(low < high)
@@ -82,17 +83,22 @@ class ThreeSum {
 
         for(int i=0; i< nums.length -2 && nums[i] <=0; i++)
         {
+            // 0   1  2  3  4 5,6,7,8,9
+            //[-4,-1,-1,-1,-1,0,1,2,2,2] -> a + b + c = 0 -> a + b = -c
+            //     i
+            //                L
+            //                  H
             if(i==0 || nums[i] != nums[i-1])
             {
               int low = i+1;
               int high = nums.length-1;
 
               // nums[i]+ nums[j] +nums[k]
-              int sum = 0-nums[i];
+              int sum = 0-nums[i]; // 0 - (-1) = 1
 
               if(nums[low] + nums[high] == sum)
               {
-                  result.add(Arrays.asList(nums[i], nums[low], nums[high]));
+                  result.add(Arrays.asList(nums[i], nums[low], nums[high])); //(-1, -1, 2)
                   while( low < high && nums[low] == nums[low+1] )
                       low ++;
                   while(low < high && nums[high] == nums[high-1])
